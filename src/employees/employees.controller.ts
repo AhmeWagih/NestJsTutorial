@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
-import { Prisma } from '../../generated/prisma/client';
+import { Prisma } from '@prisma/client';
 
 @Controller('employees')
 export class EmployeesController {
@@ -21,8 +21,8 @@ export class EmployeesController {
   }
 
   @Get()
-  findAll(@Query('role') role?: 'ADMIN' | 'USER') {
-    return this.employeesService.findAll(role);
+  async findAll(@Query('role') role?: 'ADMIN' | 'USER') {
+    return await this.employeesService.findAll(role);
   }
 
   @Get(':id')
