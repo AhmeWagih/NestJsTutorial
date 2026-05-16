@@ -13,8 +13,9 @@ export class EmployeesService {
   }
 
   async findAll(role?: 'ADMIN' | 'USER') {
-    console.log(role);
-    return this.databaseService.employee.findMany({});
+    return this.databaseService.employee.findMany({
+      where: { role },
+    });
   }
 
   async findOne(id: number) {
