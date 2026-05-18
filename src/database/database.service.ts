@@ -17,7 +17,6 @@ export class DatabaseService
   }
   async onModuleInit() {
     await this.$connect();
-    console.log('Connected to database');
   }
   async onModuleDestroy() {
     await this.$disconnect();
